@@ -4,7 +4,7 @@ before_script:
 development:
   stage: build
   script:
-    - docker build -f dockerfile -t reloni/go-static-files .
+    - docker build -f dockerfile -t reloni/go-static-files:$CI_COMMIT_REF_NAME .
     - docker push reloni/go-static-files:$CI_COMMIT_REF_NAME
   only:
     - rick
