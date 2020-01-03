@@ -21,8 +21,7 @@ func serveFiles(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	// router := mux.NewRouter().StrictSlash(true)
-	// router.HandleFunc("/healthcheck", healthcheck)
+	http.HandleFunc("/healthcheck", healthcheck)
 	http.HandleFunc("/", serveFiles)
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
