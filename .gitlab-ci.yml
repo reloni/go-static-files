@@ -1,0 +1,11 @@
+before_script:
+  - docker login -u reloni -p d1d22e36-d486-457c-8f92-75aded426cfc
+
+development:
+  stage: build
+  script:
+    - docker build -f dockerfile -t reloni/go-static-files .
+    - docker push reloni/go-static-files:$CI_COMMIT_REF_NAME
+  only:
+    - rick
+    - morty
